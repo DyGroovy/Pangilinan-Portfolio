@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import orImage from '@/assets/images/or.png'; // Adjust the path as necessary
+import orImage from '@/assets/images/or.png';
 
 export default {
     name: 'ContactPage',
@@ -49,7 +49,8 @@ export default {
 <style scoped>
 .contact-page {
     text-align: left;
-    margin-left: -300px; 
+    margin-left: -280px; 
+    margin-top: 9%;
 }
 
 form {
@@ -75,7 +76,7 @@ textarea {
 }
 
 button {
-    background-color: #2d1dbd; 
+    background-color: #000000; 
     color: white; 
     border: none; 
     padding: 10px 20px; 
@@ -86,7 +87,7 @@ button {
 }
 
 button:hover {
-    background-color: #c51b1b; 
+    background-color: #636363; 
 }
 
 .checkbox-container {
@@ -118,8 +119,8 @@ input[type="checkbox"] {
 
 .contact-info {
     margin-left: 85%; 
-    max-width: 35%; /* Limit the width to fit the layout */
-    position: relative; /* Allow for upward movement */
+    max-width: 35%; 
+    position: relative;
     margin-top: -50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
@@ -128,5 +129,11 @@ input[type="checkbox"] {
     margin-left: 0;
     font-family: sans-serif;
     font-size: large;
+}
+
+.footer {
+    bottom: 0;
+    position: sticky;
+    height: auto;
 }
 </style>

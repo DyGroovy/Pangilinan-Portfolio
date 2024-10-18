@@ -69,6 +69,7 @@ export default {
   margin-left: -25%;
   margin-right: auto;
   padding: 20px;
+  margin-top: 5%;
 }
 
 .me-image {

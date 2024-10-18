@@ -1,16 +1,15 @@
 <template>
   <div class="portfolio-showcase">
     <h1>Portfolio Showcase</h1>
-    <p>My Ongoing and Finished Projects</p>
+    <p>My Finished Projects</p>
 
-    <!-- Repository Cards -->
     <div class="repository-container">
       <div class="repository-card">
         <img :src="repository.image" alt="Stem and Leaf Plot Calculator" class="repo-image" />
         <div class="repo-content">
           <h2>{{ repository.title }}</h2>
           <p>{{ repository.description }}</p>
-          <a :href="repository.link" target="_blank" class="repo-link">View on GitHub</a>
+          <button @click="openLink(repository.link)" class="view-button">View on Vercel</button>
         </div>
       </div>
 
@@ -19,7 +18,7 @@
         <div class="repo-content">
           <h2>{{ vercelRepository.title }}</h2>
           <p>{{ vercelRepository.description }}</p>
-          <a :href="vercelRepository.link" target="_blank" class="repo-link">View on Vercel</a>
+          <button @click="openLink(vercelRepository.link)" class="view-button">View on Vercel</button>
         </div>
       </div>
 
@@ -28,19 +27,27 @@
         <div class="repo-content">
           <h2>{{ adminDashboard.title }}</h2>
           <p>{{ adminDashboard.description }}</p>
-          <a :href="adminDashboard.link" target="_blank" class="repo-link">View on GitHub</a>
+          <button @click="openLink(adminDashboard.link)" class="view-button">View on GitHub</button>
         </div>
       </div>
     </div>
 
-    <!-- Video Cards -->
     <div class="video-container">
       <div class="video-card" v-for="(video, index) in videos" :key="index">
         <img :src="video.previewImage" alt="Video preview" class="video-preview-image" />
-        <button @click="playVideo(video.src)" class="play-button">Play Video</button>
         <div class="video-content">
           <h3>{{ video.title }}</h3>
+          <button @click="playVideo(video.src)" class="play-button">Play Video</button>
           <p>{{ video.description }}</p>
+        </div>
+      </div>
+
+      <div class="repository-card">
+        <img :src="tempHumidIoT.image" alt="Temperature and Humidity IoT" class="repo-image" />
+        <div class="repo-content">
+          <h2>{{ tempHumidIoT.title }}</h2>
+          <p>{{ tempHumidIoT.description }}</p>
+          <button @click="openLink(tempHumidIoT.link)" class="view-button">View on GitHub</button>
         </div>
       </div>
     </div>
@@ -54,59 +61,59 @@ export default {
     return {
       repository: {
         title: 'Stem and Leaf Plot Calculator',
-        description: 'A project that creates stem and leaf plots for data visualization.',
-        link: 'https://github.com/DyGroovy/Engineering-Data-Analysis-Project',
-        image: require('@/assets/images/st.jpg') // Replace with a relevant image or screenshot
+        link: 'https://vercel.live/link/engineering-data-analysis-project.vercel.app?via=project-dashboard-alias-list&p=1',
+        image: require('@/assets/images/st.jpg')
       },
       vercelRepository: {
         title: 'OS Prelim Exam',
-        description: 'An online platform for taking preliminary exams.',
         link: 'https://os-prelim-exam.vercel.app/',
-        image: require('@/assets/images/os.jpg') // Replace with a relevant image or screenshot
+        image: require('@/assets/images/os.jpg')
       },
       adminDashboard: {
         title: 'Admin Dashboard Final Project',
-        description: 'A comprehensive dashboard for managing user data and analytics.',
         link: 'https://github.com/DyGroovy/Admin-Dashboard-Final-Proj',
-        image: require('@/assets/images/admin.jpg') // Replace with a relevant image or screenshot
+        image: require('@/assets/images/admin.jpg')
+      },
+      tempHumidIoT: {
+        title: 'Temperature and Humidity IoT (Arduino Cloud)',
+        link: 'https://github.com/DyGroovy/TempHumidIoT',
+        image: require('@/assets/images/tmp.jpg')
       },
       videos: [
         {
           title: 'Bluetooth Controlled Robot Car',
-          description: 'A robot car that can be controlled via Bluetooth.',
           src: require('@/assets/video/blue.mp4'),
-          previewImage: require('@/assets/images/os.jpg'), // Add preview image
+          previewImage: require('@/assets/images/tooth.jpg'),
         },
         {
           title: 'LED Memorization Game',
-          description: 'A game that challenges players to memorize LED patterns.',
           src: require('@/assets/video/ledg.mp4'),
-          previewImage: require('@/assets/images/os.jpg'), // Add preview image
+          previewImage: require('@/assets/images/game.jpg'),
         },
         {
           title: 'Obstacle Avoiding Robot Car',
-          description: 'A robot car that avoids obstacles using sensors.',
           src: require('@/assets/video/obs.mp4'),
-          previewImage: require('@/assets/images/os.jpg'), // Add preview image
+          previewImage: require('@/assets/images/obs.jpg'),
         },
         {
           title: 'RFID Door Lock using Servo',
-          description: 'A door locking system controlled by RFID.',
           src: require('@/assets/video/rfid.mp4'),
-          previewImage: require('@/assets/images/os.jpg'), // Add preview image
+          previewImage: require('@/assets/images/door.jpg'),
         },
         {
           title: 'Traffic Light System',
-          description: 'A simulation of a traffic light system.',
           src: require('@/assets/video/traffic.mp4'),
-          previewImage: require('@/assets/images/os.jpg'), // Add preview image
+          previewImage: require('@/assets/images/tlights.jpg'),
         }
       ]
     };
   },
   methods: {
     playVideo(src) {
-      window.open(src, '_blank'); // Open video in a new tab
+      window.open(src, '_blank');
+    },
+    openLink(link) {
+      window.open(link, '_blank');
     }
   }
 };
@@ -115,22 +122,22 @@ export default {
 <style scoped>
 .portfolio-showcase {
   text-align: left;
-  margin: 0 auto; /* Center the showcase */
+  margin: 0 auto;
   padding: 20px;
-  margin-left: -25%; /* Keep the negative margin as per your requirement */
+  margin-left: -25%;
+  margin-top: 5%;
 }
 
 .repository-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Space between cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .repository-card,
 .video-card {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start;
+  align-items: center;
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
@@ -139,9 +146,9 @@ export default {
 
 .video-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for video cards */
-  gap: 20px; /* Space between video cards */
-  margin-top: 20px; /* Space from repository cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .repo-image,
@@ -153,29 +160,29 @@ export default {
   margin-right: 20px;
 }
 
-.play-button {
-  background-color: #0366d6;
+.repo-content,
+.video-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.play-button,
+.view-button {
+  background-color: #000000;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 14px; /* Set a consistent font size */
+  font-size: 14px;
   cursor: pointer;
-  margin-top: auto; /* Pushes the button to the bottom of the card */
-  width: 25%; /* Make the button full width for consistency */
+  margin-top: 10px;
+  width: 90%;
 }
 
-.play-button:hover {
-  background-color: #024bbd;
-}
-
-.video-content {
-  flex-grow: 1; /* Allows the video content to take available space */
-}
-
-.repo-content,
-.video-content {
-  flex-grow: 1;
+.play-button:hover,
+.view-button:hover {
+  background-color: #505050;
 }
 
 .repo-content h2,
@@ -192,17 +199,6 @@ export default {
 }
 
 .repo-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #0366d6;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.repo-link:hover {
-  background-color: #024bbd;
+  display: none;
 }
 </style>
