@@ -10,7 +10,6 @@
           <h2>{{ repository.title }}</h2>
           <p>{{ repository.description }}</p>
           <button @click="openLink(repository.link)" class="view-button">View on Vercel</button>
-          <button @click="openLink(repository.link)" class="view-button">View on Vercel</button>
         </div>
       </div>
 
@@ -19,7 +18,6 @@
         <div class="repo-content">
           <h2>{{ vercelRepository.title }}</h2>
           <p>{{ vercelRepository.description }}</p>
-          <button @click="openLink(vercelRepository.link)" class="view-button">View on Vercel</button>
           <button @click="openLink(vercelRepository.link)" class="view-button">View on Vercel</button>
         </div>
       </div>
@@ -30,7 +28,6 @@
           <h2>{{ adminDashboard.title }}</h2>
           <p>{{ adminDashboard.description }}</p>
           <button @click="openLink(adminDashboard.link)" class="view-button">View on GitHub</button>
-          <button @click="openLink(adminDashboard.link)" class="view-button">View on GitHub</button>
         </div>
       </div>
     </div>
@@ -40,7 +37,6 @@
         <img :src="video.previewImage" alt="Video preview" class="video-preview-image" />
         <div class="video-content">
           <h3>{{ video.title }}</h3>
-          <button @click="playVideo(video.src)" class="play-button">Play Video</button>
           <button @click="playVideo(video.src)" class="play-button">Play Video</button>
           <p>{{ video.description }}</p>
         </div>
@@ -67,13 +63,10 @@ export default {
         title: 'Stem and Leaf Plot Calculator',
         link: 'https://vercel.live/link/engineering-data-analysis-project.vercel.app?via=project-dashboard-alias-list&p=1',
         image: require('@/assets/images/st.jpg')
-        link: 'https://vercel.live/link/engineering-data-analysis-project.vercel.app?via=project-dashboard-alias-list&p=1',
-        image: require('@/assets/images/st.jpg')
       },
       vercelRepository: {
         title: 'OS Prelim Exam',
         link: 'https://os-prelim-exam.vercel.app/',
-        image: require('@/assets/images/os.jpg')
         image: require('@/assets/images/os.jpg')
       },
       adminDashboard: {
@@ -121,10 +114,6 @@ export default {
     },
     openLink(link) {
       window.open(link, '_blank');
-      window.open(src, '_blank');
-    },
-    openLink(link) {
-      window.open(link, '_blank');
     }
   }
 };
@@ -133,7 +122,6 @@ export default {
 <style scoped>
 .portfolio-showcase {
   text-align: left;
-  margin: 0 auto;
   margin: 0 auto;
   padding: 20px;
   margin-left: -25%;
@@ -144,14 +132,11 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
 }
 
 .repository-card,
 .video-card {
   display: flex;
-  align-items: center;
   align-items: center;
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -161,9 +146,6 @@ export default {
 
 .video-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 20px;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 20px;
@@ -188,32 +170,16 @@ export default {
 .play-button,
 .view-button {
   background-color: #000000;
-.repo-content,
-.video-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.play-button,
-.view-button {
-  background-color: #000000;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 14px;
-  font-size: 14px;
   cursor: pointer;
-  margin-top: 10px;
-  width: 90%;
   margin-top: 10px;
   width: 90%;
 }
 
-.play-button:hover,
-.view-button:hover {
-  background-color: #505050;
 .play-button:hover,
 .view-button:hover {
   background-color: #505050;
@@ -233,7 +199,6 @@ export default {
 }
 
 .repo-link {
-  display: none;
   display: none;
 }
 </style>

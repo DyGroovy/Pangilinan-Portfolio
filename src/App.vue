@@ -1,15 +1,12 @@
 <template>
   <div id="app" :class="{ 'login-page': isLoginPage }">
-  <div id="app" :class="{ 'login-page': isLoginPage }">
     <nav v-if="!isLoginPage">
-      <div class="logo">Pangilinan, Dylan Ranze Z.</div>
       <div class="logo">Pangilinan, Dylan Ranze Z.</div>
       <ul>
         <li><router-link to="/portfolio/profile">Profile</router-link></li>
         <li><router-link to="/portfolio/showcase">Showcase</router-link></li>
         <li><router-link to="/portfolio/contact">Contact</router-link></li>
         <li><router-link to="/portfolio/creative">Creative</router-link></li>
-
         <li class="dropdown">
           <span @click="toggleMenu" class="menu-icon">☰</span>
           <ul v-show="showMenu" class="dropdown-content">
@@ -40,7 +37,7 @@ export default {
   data() {
     return {
       isAuthenticated: localStorage.getItem('auth') === 'true',
-      showMenu: false 
+      showMenu: false
     };
   },
   computed: {
@@ -71,22 +68,18 @@ export default {
 </script>
 
 <style scoped>
-
 body {
   margin: 0;
-  font-family: 'Georgia', serif; 
   font-family: 'Georgia', serif; 
   color: #333;
   padding-top: 60px;
   background-color: #f5f5f5;
 }
 
-
 #app {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 
 nav {
   background-color: #000;
@@ -128,7 +121,6 @@ nav ul li a {
   border-radius: 5px;
 }
 
-
 nav ul li a:hover {
   color: #FFD700;
   box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
@@ -136,7 +128,6 @@ nav ul li a:hover {
 
 .menu-icon {
   cursor: pointer;
-  top: 0;
   color: #fff;
   font-size: 24px;
   padding: 10px 15px;
