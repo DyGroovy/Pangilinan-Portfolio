@@ -1,6 +1,8 @@
 <template>
   <div id="app" :class="{ 'login-page': isLoginPage }">
+  <div id="app" :class="{ 'login-page': isLoginPage }">
     <nav v-if="!isLoginPage">
+      <div class="logo">Pangilinan, Dylan Ranze Z.</div>
       <div class="logo">Pangilinan, Dylan Ranze Z.</div>
       <ul>
         <li><router-link to="/portfolio/profile">Profile</router-link></li>
@@ -73,15 +75,18 @@ export default {
 body {
   margin: 0;
   font-family: 'Georgia', serif; 
+  font-family: 'Georgia', serif; 
   color: #333;
   padding-top: 60px;
   background-color: #f5f5f5;
 }
 
+
 #app {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 
 nav {
   background-color: #000;
@@ -122,6 +127,7 @@ nav ul li a {
   transition: color 0.3s, box-shadow 0.3s;
   border-radius: 5px;
 }
+
 
 nav ul li a:hover {
   color: #FFD700;

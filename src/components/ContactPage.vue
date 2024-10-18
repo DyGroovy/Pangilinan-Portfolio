@@ -77,6 +77,7 @@ textarea {
 
 button {
     background-color: #000000; 
+    background-color: #000000; 
     color: white; 
     border: none; 
     padding: 10px 20px; 
@@ -87,6 +88,7 @@ button {
 }
 
 button:hover {
+    background-color: #636363; 
     background-color: #636363; 
 }
 
@@ -121,6 +123,8 @@ input[type="checkbox"] {
     margin-left: 85%; 
     max-width: 35%; 
     position: relative;
+    max-width: 35%; 
+    position: relative;
     margin-top: -50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
@@ -129,6 +133,12 @@ input[type="checkbox"] {
     margin-left: 0;
     font-family: sans-serif;
     font-size: large;
+}
+
+.footer {
+    bottom: 0;
+    position: sticky;
+    height: auto;
 }
 
 .footer {
