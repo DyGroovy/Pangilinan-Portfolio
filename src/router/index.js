@@ -1,23 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router';
-
-import LoginPage from '@/components/LoginPage.vue';
-import ProfilePage from '@/components/ProfilePage.vue';
-import PortfolioShowcase from '@/components/PortfolioShowcase.vue';
-import ContactPage from '@/components/ContactPage.vue';
-import CreativePage from '@/components/CreativePage.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import StudentProfile from '../components/StudentProfile.vue'
+import CompanyProfile from '../components/CompanyProfile.vue'
+import ExperiencePage from '../components/ExperiencePage.vue'
+import SkillsPage from '../components/SkillsPage.vue'
 
 const routes = [
-  { path: '/', redirect: '/login' }, // Redirect to login page
-  { path: '/login', component: LoginPage },
-  { path: '/portfolio/profile', component: ProfilePage },
-  { path: '/portfolio/showcase', component: PortfolioShowcase },
-  { path: '/portfolio/contact', component: ContactPage },
-  { path: '/portfolio/creative', component: CreativePage }
-];
+  { path: '/', component: StudentProfile },
+  { path: '/company', component: CompanyProfile },
+  { path: '/experience', component: ExperiencePage },
+  { path: '/skills', component: SkillsPage }
+]
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(),
   routes
-});
-
-export default router;
+})
