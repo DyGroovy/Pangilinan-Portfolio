@@ -1,83 +1,91 @@
 <template>
   <div id="app">
-    <header class="header">
+    <!-- Header / Navbar -->
+    <header class="app-header">
       <div class="logo">Dylan Ranze Z. Pangilinan</div>
-
-      <nav class="nav">
-        <router-link to="/">Profile</router-link>
+      <nav class="nav-buttons">
+        <router-link to="/">Student Profile</router-link>
         <router-link to="/company">Company</router-link>
         <router-link to="/experience">Experience</router-link>
         <router-link to="/skills">Skills</router-link>
       </nav>
     </header>
 
-    <main class="content">
+    <!-- Router View -->
+    <main class="main-content">
       <router-view />
     </main>
   </div>
 </template>
 
 <style scoped>
+/* App Background */
 #app {
-  background: #000;
+  background-color: #000000;
   color: #f5f5f5;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Header */
-.header {
+.app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 50px;
-  background: #0a0a0a;
-  border-bottom: 2px solid #e50914;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, #1e3a8a, #e50914);
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.7);
   position: sticky;
   top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
 }
 
 .logo {
+  font-size: 22px;
   font-weight: bold;
-  color: #ff2a2a;
+  color: #ffcccb;
 }
 
-.nav {
+.nav-buttons {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
-.nav a {
-  color: #ccc;
+.nav-buttons a {
+  color: #f5f5f5;
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.nav a:hover {
+.nav-buttons a:hover {
   background: #e50914;
-  color: #fff;
+  color: #aad4ff;
 }
 
-/* Content */
-.content {
+/* Main Content */
+.main-content {
   padding: 40px 60px;
 }
 
-/* Mobile */
+/* Responsive Navbar */
 @media (max-width: 768px) {
-  .header {
+  .app-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .nav {
+  .nav-buttons {
     width: 100%;
     justify-content: space-around;
+    margin-top: 10px;
   }
 
-  .content {
+  .main-content {
     padding: 20px;
   }
 }
