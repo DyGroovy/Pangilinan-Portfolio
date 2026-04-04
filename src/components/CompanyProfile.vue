@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <section class="hero">
-      <img src="@/assets/company.jpg" class="image"/>
+      <img src="@/assets/profile.jpg" class="image"/>
 
       <div class="info">
         <h1>Company Experience</h1>
